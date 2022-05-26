@@ -9,7 +9,7 @@ import pandas as pd
 # here's the list of possible columns to choose from.
 list_of_columns =['year', 'city', 'state', 'race', 'killed', 'injured', 'victims', 'date', 'type', 'time']
 
-mycolumn='year'
+mycolumn='state'
 #myheading1 = f"Wow! That's a lot of {mycolumn}!"
 mygraphtitle = 'School Shootings over a 10 year period'
 mycolorscale = 'ylorrd' # Note: The error message will list possible color scales.
