@@ -33,14 +33,14 @@ df['text'] = df['date'] + 'time' + df['time'] + '<br>' + \
     'School Type' + df['type']
 
 fig = go.Figure(data=go.Choropleth(
-    locations=df['code'],
-    z=df['total exports'].astype(float),
+    locations=df['CDCODE'],
+    z=df['victims'].astype(float),
     locationmode='USA-states',
     colorscale='Reds',
     autocolorscale=False,
     text=df['text'], # hover text
     marker_line_color='white', # line markers between states
-    colorbar_title="Millions USD"
+    colorbar_title="Hundreds"
 ))
 
 fig.update_layout(
