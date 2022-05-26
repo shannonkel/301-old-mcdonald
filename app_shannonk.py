@@ -7,16 +7,14 @@ import pandas as pd
 ########### Define your variables ######
 
 # here's the list of possible columns to choose from.
-list_of_columns =['code', 'state', 'category', 'total exports', 'beef', 'pork', 'poultry',
-       'dairy', 'fruits fresh', 'fruits proc', 'total fruits', 'veggies fresh',
-       'veggies proc', 'total veggies', 'corn', 'wheat', 'cotton']
+list_of_columns =['year', 'city', 'state', 'race', 'killed', 'injured', 'victims', 'date', 'type', 'time']
 
-mycolumn='corn'
-myheading1 = f"Wow! That's a lot of {mycolumn}!"
-mygraphtitle = '2011 US Agriculture Exports by State'
+mycolumn='state'
+#myheading1 = f"Wow! That's a lot of {mycolumn}!"
+mygraphtitle = 'School Shootings over a 10 year period'
 mycolorscale = 'ylorrd' # Note: The error message will list possible color scales.
-mycolorbartitle = "Millions USD"
-tabtitle = 'Old McDonald'
+mycolorbartitle = "Hundreds"
+tabtitle = 'Something has to change'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
 githublink = 'https://github.com/austinlasseter/dash-map-usa-agriculture'
 
@@ -24,7 +22,7 @@ githublink = 'https://github.com/austinlasseter/dash-map-usa-agriculture'
 ########## Set up the chart
 
 import pandas as pd
-df = pd.read_csv('assets/usa-2011-agriculture.csv')
+df = pd.read_csv('assets/CNN_School_Shooting_File_7_26_2019.csv')
 
 fig = go.Figure(data=go.Choropleth(
     locations=df['code'], # Spatial coordinates
