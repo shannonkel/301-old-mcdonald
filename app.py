@@ -1,10 +1,13 @@
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
 import plotly.graph_objects as go
 import pandas as pd
 
 ########### Define your variables ######
 
 # here's the list of possible columns to choose from.
-list_of_columns =['city', 'state', 'killed', 'injured', 'date', 'type', 'time']
+#list_of_columns =['city', 'state', 'killed', 'injured', 'date', 'type', 'time']
 
 # mycolumn='state'
 # #myheading1 = f"Wow! That's a lot of {mycolumn}!"
@@ -49,29 +52,36 @@ fig.update_layout(
         lakecolor='rgb(255, 255, 255)'),
 )
 
-fig.show()
+#fig.show()
 
+
+app = dash.Dash()
+app.layout = html.Div([
+    dcc.Graph(figure=fig)
+])
+
+app.run_server(debug=True, use_reloader=False)  
 
 
 ########### Initiate the app
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-server = app.server
-app.title=tabtitle
+# external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+# app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+# server = app.server
+# app.title=tabtitle
 
 ########### Set up the layout
 
-app.layout = html.Div(children=[
-    html.H1(myheading1),
-    dcc.Graph(
-        id='figure-1',
-        figure=fig
-    ),
-    html.A('Code on Github', href=githublink),
-    html.Br(),
-    html.A("Data Source", href=sourceurl),
-    ]
-)
+# app.layout = html.Div(children=[
+#     html.H1(myheading1),
+#     dcc.Graph(
+#         id='figure-1',
+#         figure=fig
+#     ),
+#     html.A('Code on Github', href=githublink),
+#     html.Br(),
+#     html.A("Data Source", href=sourceurl),
+#     ]
+# )
 
 ############ Deploy
 if __name__ == '__main__':
